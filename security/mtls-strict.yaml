@@ -1,0 +1,9 @@
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: frontend-prod
+  namespace: frontend-prod
+spec:
+  mtls:
+    mode: STRICT

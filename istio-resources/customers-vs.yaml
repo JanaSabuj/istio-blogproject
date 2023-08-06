@@ -1,0 +1,13 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: customers
+spec:
+  hosts:
+  - customers.backend-prod.svc.cluster.local
+  http:
+  - route:
+    - destination:
+        host: customers.backend-prod.svc.cluster.local
+        subset: v1

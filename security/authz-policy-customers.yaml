@@ -1,0 +1,15 @@
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allowed-customers-clients
+  namespace: backend-prod
+spec:
+  selector:
+    matchLabels:
+        app: customers
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/frontend-prod/sa/web-frontend"] # ns and SA - spiffe standard
